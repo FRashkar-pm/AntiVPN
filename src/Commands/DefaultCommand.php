@@ -29,6 +29,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginOwned;
+use pocketmine\Server;
 use AntiProxy;
 use Tasks\ProxyLookupTask;
 use Utils\Language;
