@@ -28,6 +28,7 @@ use pocketmine\permission\DefaultPermissions;
 use pocketmine\permission\Permission;
 use pocketmine\permission\PermissionManager;
 use pocketmine\plugin\PluginBase;
+use pocketmine\plugin\Plugin;
 use pocketmine\utils\SingletonTrait;
 use ReinfyTeam\AntiVPN\Commands\DefaultCommand;
 use ReinfyTeam\AntiVPN\Tasks\PoggitUpdateTask;
