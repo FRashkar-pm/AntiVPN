@@ -72,14 +72,14 @@ class PoggitUpdateTask extends AsyncTask {
 		[$highestVersion, $artifactUrl, $api, $err] = $this->getResult();
 		if ($highestVersion === null || $artifactUrl === null || $api === null) {
 			Server::getInstance()->getLogger()->critical(Language::translateMessage("new-update-prefix") . " " . vsprintf(Language::translateMessage("update-error"), ["Trying to update on github..."]));
-			$plugin->getServer()->getAsyncPool()->submitTask(new GithubUpdateTask(AntiProxy::getInstance()->getDescription()->getName(), AntiProxy::getInstance()->getDescription()->getVersion()));
+			$plugin->getScheduler()->getAsyncPool()->submitTask(new GithubUpdateTask(AntiProxy::getInstance()->getDescription()->getName(), AntiProxy::getInstance()->getDescription()->getVersion()));
 			$this->cancelRun();
 			return;
 		}
 		if ($err !== null) {
 			Server::getInstance()->getLogger()->critical(Language::translateMessage("new-update-prefix") . " " . vsprintf(Language::translateMessage("update-error"), [$err]));
 			Server::getInstance()->getLogger()->notice(Language::translateMessage("new-update-prefix") . " " . Language::translateMessage("update-retry"));
-			$plugin->getServer()->getAsyncPool()->submitTask(new GithubUpdateTask(AntiProxy::getInstance()->getDescription()->getName(), AntiProxy::getInstance()->getDescription()->getVersion()));
+			$plugin->getScheduler()->getAsyncPool()->submitTask(new GithubUpdateTask(AntiProxy::getInstance()->getDescription()->getName(), AntiProxy::getInstance()->getDescription()->getVersion()));
 			$this->cancelRun();
 			return;
 		}
