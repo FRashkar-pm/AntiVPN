@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace ReinfyTeam\AntiVPN\Commands;
+namespace Commands;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
