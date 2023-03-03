@@ -27,15 +27,19 @@ namespace ReinfyTeam\AntiVPN\Commands;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
+use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginOwned;
-use ReinfyTeam\AntiVPN\AntiProxy;
-use ReinfyTeam\AntiVPN\Tasks\ProxyLookupTask;
-use ReinfyTeam\AntiVPN\Utils\Language;
+use AntiProxy;
+use Tasks\ProxyLookupTask;
+use Utils\Language;
+use Utils\Form\SimpleForm;
+use Utils\PluginUtils;
 use function count;
 use function strtolower;
 use function vsprintf;
 
 class DefaultCommand extends Command implements PluginOwned {
+	
 	public function getOwningPlugin() : AntiProxy {
 		return AntiProxy::getInstance();
 	}
@@ -97,8 +101,9 @@ class DefaultCommand extends Command implements PluginOwned {
 			case "info":
 			case "authors":
 				$sender->sendMessage(Language::translateMessage("author-info"));
+				$plugin = Server::getInstance()->getPluginManager()->getPlugin('AntiVPN');
 				foreach ($this->plugin->getDescription()->getAuthors() as $author) {
-					$sender->sendMessage("- " . T::GREEN . $author);
+					$sender->sendMessage("- " . TextFormat::GREEN . $author);
 				}
 				$sender->sendMessage(Language::translateMessage("author-thanks"));
 				break;
