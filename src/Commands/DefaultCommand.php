@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace Commands;
+namespace ReinfyTeam\AntiVPN\Commands;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
@@ -30,11 +30,11 @@ use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\Server;
-use AntiProxy;
-use Tasks\ProxyLookupTask;
-use Utils\Language;
-use Utils\Form\SimpleForm;
-use Utils\PluginUtils;
+use ReinfyTeam\AntiVPN\AntiProxy;
+use ReinfyTeam\AntiVPN\Tasks\ProxyLookupTask;
+use ReinfyTeam\AntiVPN\Utils\Language;
+use ReinfyTeam\AntiVPN\Utils\Form\SimpleForm;
+use ReinfyTeam\AntiVPN\Utils\PluginUtils;
 use function count;
 use function strtolower;
 use function vsprintf;
